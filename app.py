@@ -38,7 +38,9 @@ def delete_student(id):
     db.session.commit()
     return redirect('/')
 
+with app.app_context():
+    db.create_all()  # Create database tables
+
 if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()  # Create database tables
     app.run(debug=True)
+
